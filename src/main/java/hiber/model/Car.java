@@ -6,11 +6,7 @@ import javax.persistence.*;
 @Table(catalog = "spring_hiber", name = "cars")
 public class Car {
 
-    @OneToOne(mappedBy = "car")
-    private User owner;
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name")
@@ -19,22 +15,13 @@ public class Car {
     @Column(name = "serias")
     private int serias;
 
-    public Car(Long id, String name, int serias) {
-        this.id = id;
-        this.name = name;
-        this.serias = serias;
-    }
-
-    public User getOwner() {
-        return owner;
-    }
-
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
-
     public Car() {
 
+    }
+
+    public Car(String name, int serias) {
+        this.name = name;
+        this.serias = serias;
     }
 
     public Long getId() {
